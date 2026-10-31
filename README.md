@@ -5,6 +5,7 @@
 [![Latest Release](https://img.shields.io/github/v/release/Kirilka4345/ai-customer-support-ticket-bot?style=for-the-badge&logo=github&color=success)](https://github.com/Kirilka4345/ai-customer-support-ticket-bot/releases/latest)
 [![Download Zip](https://img.shields.io/badge/Download_v1.0.0-ZIP-blue?style=for-the-badge&logo=zip)](https://github.com/Kirilka4345/ai-customer-support-ticket-bot/releases/download/v1.0.0/AI-Customer-Support-Ticket-Bot-v1.0.zip)
 [![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python)](https://python.org)
+[![Tests: Passing](https://img.shields.io/badge/Tests-4%2F4%20Passing-success?style=for-the-badge&logo=python)](tests/test_support_bot.py)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
 ---
