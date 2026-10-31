@@ -6,9 +6,13 @@
 [![Download Zip](https://img.shields.io/badge/Download_v1.0.0-ZIP-blue?style=for-the-badge&logo=zip)](https://github.com/Kirilka4345/ai-customer-support-ticket-bot/releases/download/v1.0.0/AI-Customer-Support-Ticket-Bot-v1.0.zip)
 [![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python)](https://python.org)
 [![Tests: Passing](https://img.shields.io/badge/Tests-4%2F4%20Passing-success?style=for-the-badge&logo=python)](tests/test_support_bot.py)
+[![Buy on Gumroad](https://img.shields.io/badge/Buy_on_Gumroad-$35-ff90e8?style=for-the-badge&logo=gumroad)](https://kirillopen.gumroad.com/l/mfpqo)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
 
 ---
+
+
+> 🛍️ **Instant Download & Commercial License:** [Buy AI Customer Support Ticket Bot on Gumroad ($35)](https://kirillopen.gumroad.com/l/mfpqo)
 
 ## 🚀 Overview
 
