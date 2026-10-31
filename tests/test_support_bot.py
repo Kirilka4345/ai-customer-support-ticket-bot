@@ -15,7 +15,7 @@ class TestSupportBot(unittest.TestCase):
         url = generate_tonkeeper_url(2.0, "Pro Tier (1 Month)")
         self.assertTrue(url.startswith("ton://transfer/"))
         self.assertIn("amount=2000000000", url)
-        self.assertIn("text=SUPPORT-BOT:Pro_Tier_(1_Month)", url)
+        self.assertIn("text=SUPPORT-BOT%3APro_Tier_%281_Month%29", url)
         self.assertIn(CONFIG["WALLETS"]["TON"], url)
 
     def test_wallets_configuration(self):

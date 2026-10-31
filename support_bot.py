@@ -1,12 +1,15 @@
 # -*- coding: utf-8 -*-
-"""Production AI Customer Support Ticket Bot with Tonkeeper & Multi-Crypto Billing."""
+"""Subscription billing-text prototype; no AI or Telegram service is implemented."""
+from decimal import Decimal, InvalidOperation
+from urllib.parse import urlencode
 import os
 import sys
 import json
 import logging
 from typing import Dict, Any
 
-sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
 
 CONFIG = {
@@ -26,14 +29,20 @@ CONFIG = {
 
 def generate_tonkeeper_url(amount_ton: float, plan_name: str) -> str:
     wallet = CONFIG["WALLETS"]["TON"]
-    nano = int(amount_ton * 1e9)
+    try:
+        value = Decimal(str(amount_ton)) * Decimal(1000000000)
+        if not value.is_finite() or value <= 0 or value != value.to_integral_value():
+            raise ValueError("Amount must be positive, finite and exact to nanoTON")
+        nano = int(value)
+    except InvalidOperation as exc:
+        raise ValueError("Invalid TON amount") from exc
     comment = f"SUPPORT-BOT:{plan_name.replace(' ', '_')}"
-    return f"ton://transfer/{wallet}?amount={nano}&text={comment}"
+    return f"ton://transfer/{wallet}?" + urlencode({"amount": nano, "text": comment})
 
 def get_billing_info() -> str:
     lines = ["🤖 **AI Customer Support & Ticket Manager Bot**\n"]
-    lines.append("Features:\n- Automatic classification of customer tickets\n- FAQ vector search & instant answers\n- Operator handover with sound alerts\n")
-    lines.append("💎 **Commercial License & Hosting Subscriptions:**")
+    lines.append("Scope: subscription text and payment-link generation only. No AI, ticket storage or hosted service.\n")
+    lines.append("💎 **Example subscription plans (demonstration only):**")
     for s in CONFIG["SUBSCRIPTIONS"]:
         url = generate_tonkeeper_url(s['price_ton'], s['plan'])
         lines.append(f"• **{s['plan']}**: `{s['price_ton']} TON` (${s['price_usdt']} USDT) -> [Pay in Tonkeeper]({url})")
@@ -44,4 +53,3 @@ def get_billing_info() -> str:
 
 if __name__ == "__main__":
     print(get_billing_info())
-

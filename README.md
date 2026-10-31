@@ -1,79 +1,48 @@
-# ⚡ ai-customer-support-ticket-bot
+# Python Subscription Billing-Text Starter
 
-> **24/7 AI-Powered Telegram & Web Customer Support Ticket Bot with Operator Handover & Multi-Chain Crypto Billing.**
+A small Python prototype for subscription descriptions and TON payment links.
 
-[![Latest Release](https://img.shields.io/github/v/release/Kirilka4345/ai-customer-support-ticket-bot?style=for-the-badge&logo=github&color=success)](https://github.com/Kirilka4345/ai-customer-support-ticket-bot/releases/latest)
-[![Download Zip](https://img.shields.io/badge/Download_v1.0.0-ZIP-blue?style=for-the-badge&logo=zip)](https://github.com/Kirilka4345/ai-customer-support-ticket-bot/releases/download/v1.0.0/AI-Customer-Support-Ticket-Bot-v1.0.zip)
-[![Python Version](https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python)](https://python.org)
-[![Tests: Passing](https://img.shields.io/badge/Tests-4%2F4%20Passing-success?style=for-the-badge&logo=python)](tests/test_support_bot.py)
-[![Buy on Gumroad](https://img.shields.io/badge/Buy_on_Gumroad-$35-ff90e8?style=for-the-badge&logo=gumroad)](https://kirillopen.gumroad.com/l/mfpqo)
-[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](LICENSE)
+**Status: development starter / prototype.** Read the scope before integrating.
 
----
+## Included
 
+- Formats example subscription tiers and billing text.
+- Validates TON amounts and encodes payment memos.
 
-> 🛍️ **Instant Download & Commercial License:** [Buy AI Customer Support Ticket Bot on Gumroad ($35)](https://kirillopen.gumroad.com/l/mfpqo)
+## Scope and limitations
 
-## 🚀 Overview
+- No AI classification, ticket storage, SLA tracking, messaging service or hosted support.
+- Example plans do not activate a service. Do not send payments to test the code.
+- Runtime settings live in CONFIG; config.example.json is a reference only.
 
-**ai-customer-support-ticket-bot** is an asynchronous Python boilerplate built to automate customer service inquiries, handle recurring FAQ questions, structure support tickets, and seamlessly escalate complex issues to human operators inside Telegram.
+## Quick start
 
-### 🤖 Core Capabilities
-- **Automated Ticket Triage:** Categorizes incoming client requests (billing, technical, feature requests, general inquiry).
-- **Instant FAQ Resolution:** Provides immediate answers based on your knowledge base, reducing operator load by up to 80%.
-- **Seamless Operator Handover:** Transfers active chat threads to human managers with one click, preserving conversation context.
-- **Multi-Chain Subscription Billing:** Integrated billing for premium service tiers via TON, USDT (TRC-20), EVM, and Solana with Tonkeeper deeplinks.
-- **Persistent State Storage:** Stores open/resolved tickets and user profiles in SQLite / PostgreSQL.
+Python 3.10+; run from the repository directory.
 
----
-
-## ⚡ Quickstart
-
-### 1. Installation
-Clone the repository or [download the release package](https://github.com/Kirilka4345/ai-customer-support-ticket-bot/releases/download/v1.0.0/AI-Customer-Support-Ticket-Bot-v1.0.zip):
-
-```bash
-git clone https://github.com/Kirilka4345/ai-customer-support-ticket-bot.git
-cd ai-customer-support-ticket-bot
-pip install -r requirements.txt
-```
-
-### 2. Configuration
-Copy `config.example.json` and configure your Telegram bot token and operator Telegram ID:
-
-```json
-{
-  "bot_token": "YOUR_TELEGRAM_BOT_TOKEN",
-  "admin_id": 123456789,
-  "wallets": {
-    "TON": "UQCwrgVAYHvlJe87-eOAK01ZzMW42E17YnbCyWPPkKeLhEpP",
-    "USDT_TRC20": "TXCYzTR3Br4MuWXUnGRvpA3EaYC7iyydYj",
-    "EVM": "0x12f0a957bd351492252aac81198edba4c5a56790",
-    "SOLANA": "2N9dzxxt3AQRfN52FAN4W3VXvVz1aCcfXdGgwi7sHaiD8"
-  }
-}
-```
-
-### 3. Run
-```bash
+```sh
 python support_bot.py
-# or double-click run_bot.bat on Windows
 ```
 
----
+## Validation
 
-## 💼 Custom Support Bot Development & Enterprise Integrations
+```sh
+python -m unittest discover -s tests -v
+```
 
-Need an AI customer support bot connected to your CRM (HubSpot, Notion, Bitrix24), Zendesk, or custom website chat widget?
+Unit tests cover billing text, amount validation and URL encoding; they do not test an AI support system.
 
-I build turnkey customer service automation systems:
-- **Integrations:** Telegram, Web Widget, WhatsApp Business API, CRM webhooks.
-- **AI Brain:** Custom knowledge base training on your documentation, PDFs, and website FAQs.
-- **SLA & Analytics:** Escalation timers, operator response time analytics, and satisfaction rating polls.
+## Repository map
 
-### 📩 Contact & Inquiries
-- **GitHub:** [@Kirilka4345](https://github.com/Kirilka4345)
-- **Direct Crypto Licensing ($15 – $49):**
-  - **TON:** `UQCwrgVAYHvlJe87-eOAK01ZzMW42E17YnbCyWPPkKeLhEpP`
-  - **USDT (TRC-20):** `TXCYzTR3Br4MuWXUnGRvpA3EaYC7iyydYj`
-  - **EVM (Base / ETH):** `0x12f0a957bd351492252aac81198edba4c5a56790`
+- `support_bot.py` — implementation.
+- `tests/` — current checks and regression tests.
+- [CHANGELOG.md](CHANGELOG.md) — changes and verification limits.
+- [CONTRIBUTING.md](CONTRIBUTING.md) — issue and change guidelines.
+
+## Downloads and usage terms
+
+[Repository releases](https://github.com/Kirilka4345/ai-customer-support-ticket-bot/releases) contain historical snapshots; use the current source for the documented fixes.
+No LICENSE file is present. Earlier MIT badges and commercial-license claims did not establish usable license terms. License terms require clarification before redistribution.
+
+## Questions
+
+For reproducible technical issues, use [GitHub Issues](https://github.com/Kirilka4345/ai-customer-support-ticket-bot/issues). Include the commit, runtime version, expected result and minimal reproduction. Never include tokens, cookies or customer data.
