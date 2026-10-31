@@ -44,3 +44,4 @@ def get_billing_info() -> str:
 
 if __name__ == "__main__":
     print(get_billing_info())
+
